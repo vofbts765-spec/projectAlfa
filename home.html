@@ -252,32 +252,59 @@ footer{background:rgba(4,6,7,.58);backdrop-filter:blur(10px);-webkit-backdrop-fi
 .cinematic-btn:hover::before{left:120%}
 .cinematic-btn .arrow{transition:transform .3s ease;display:inline-block}
 .cinematic-btn:hover .arrow{transform:translateX(5px)}
-/* Bug Bounty Calculator Card Styling */
-.bug-bounty-card {
-	border-color: rgba(183, 255, 67, 0.35);
-	background: linear-gradient(145deg, rgba(8, 12, 13, 0.95), rgba(4, 7, 8, 0.98));
-	margin-top: 30px;
-}
 
-.bug-bounty-card:hover {
-	border-color: var(--green);
-	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(183, 255, 67, 0.12);
-}
+.bug-bounty-card {border-color: rgba(183, 255, 67, 0.35);background: linear-gradient(145deg, rgba(8, 12, 13, 0.95), rgba(4, 7, 8, 0.98));margin-top: 30px;}
+.bug-bounty-card:hover {border-color: var(--green);box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(183, 255, 67, 0.12);}
+.calc-btn {background: transparent;color: var(--green);border: 1px solid var(--green);}
+.calc-btn:hover {background: var(--green);color: #080a08;box-shadow: 0 10px 30px rgba(183, 255, 67, 0.3);}
+	#cyber-preloader {position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;height: 100dvh;background-color: #080c14;display: flex;justify-content: center;align-items: center;z-index: 999999;opacity: 1;transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;box-sizing: border-box;font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;overflow: hidden;}
 
-.calc-btn {
-	background: transparent;
-	color: var(--green);
-	border: 1px solid var(--green);
-}
+#cyber-preloader.fade-out {opacity: 0;visibility: hidden;}
+.preloader-content {display: flex;flex-direction: column;align-items: center;justify-content: center;width: 100%;max-width: 360px;padding: 20px;}
+#preloader-percent {color: #ffffff;font-size: clamp(28px, 6vw, 38px);font-weight: 800;letter-spacing: 1px;text-shadow: 0 0 15px rgba(0, 242, 255, 0.8); margin-bottom: 4px;}
+.preloader-subtitle {color: #00f2ff;font-size: clamp(11px, 2.5vw, 13px);font-weight: 700;letter-spacing: 2px;text-transform: uppercase;margin-bottom: 25px;opacity: 0.9;text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);text-align: center;}
+.logo-wrapper {position: relative;width: min(210px, 55vw);height: min(210px, 55vw);display: flex;justify-content: center;align-items: center;margin-bottom: 25px;}
+.logo-inner {width: 65%;height: 65%;border-radius: 50%;overflow: hidden;display: flex;justify-content: center;align-items: center;z-index: 2;box-shadow: 0 0 25px rgba(0, 242, 255, 0.2);}
+#preloader-logo {width: 100%;height: 100%;object-fit: cover;}
+.progress-ring {position: absolute;  top: 0;left: 0;width: 100%;height: 100%;transform: rotate(-90deg); }
+.ring-bg {stroke: rgba(0, 242, 255, 0.12);stroke-width: 5;fill: transparent;}
+.ring-progress { stroke: #00f2ff;  stroke-width: 5;fill: transparent;stroke-linecap: round;stroke-dasharray: 596.9; stroke-dashoffset: 596.9;transition: stroke-dashoffset 0.15s ease-out;filter: drop-shadow(0px 0px 10px #00f2ff);}
+.status-container {display: flex;align-items: center;gap: 8px;background: rgba(0, 242, 255, 0.05);border: 1px solid rgba(0, 242, 255, 0.2);padding: 6px 16px;border-radius: 20px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);}
+.pulse-dot {width: 8px;height: 8px;background-color: #00f2ff;border-radius: 50%;box-shadow: 0 0 10px #00f2ff; animation: pulse 1.2s infinite ease-in-out;}
+@keyframes pulse {0% { opacity: 0.3; transform: scale(0.8); }50% { opacity: 1; transform: scale(1.2); }100% { opacity: 0.3; transform: scale(0.8); }}
+#status-text {color: #a0aec0;font-size: clamp(11px, 2.2vw, 13px);font-family: monospace, monospace;letter-spacing: 0.5px;}
 
-.calc-btn:hover {
-	background: var(--green);
-	color: #080a08;
-	box-shadow: 0 10px 30px rgba(183, 255, 67, 0.3);
-}
 </style>
 </head>
 <body>
+	<div id="cyber-preloader">
+  <div class="preloader-content">
+    
+
+    <div id="preloader-percent">0%</div>
+
+
+    <div class="preloader-subtitle">INITIALIZING SECURITY MATRIX</div>
+
+    <div class="logo-wrapper">
+      <svg class="progress-ring" viewBox="0 0 220 220">
+        <circle class="ring-bg" cx="110" cy="110" r="95"></circle>
+        <circle class="ring-progress" cx="110" cy="110" r="95"></circle>
+      </svg>
+      <div class="logo-inner">
+
+        <img src="https://i.postimg.cc/h45cVFHZ/Whats-App-Image-2026-09-18-at-2-55-54-PM.jpg" alt="Abdur Rahman Logo" id="preloader-logo">
+      </div>
+    </div>
+
+    <div class="status-container">
+      <span class="pulse-dot"></span>
+      <span id="status-text">Loading definitions...</span>
+    </div>
+
+  </div>
+</div>
+
 	<video autoplay muted loop playsinline id="bg-video">
 	    <source src="https://www.shutterstock.com/shutterstock/videos/3401562239/preview/stock-footage-blue-hacker-desktop-console-with-scrolling-programming-code-loop-background-wallpaper.webm" type="video/mp4">
 	</video>
@@ -616,7 +643,71 @@ footer{background:rgba(4,6,7,.58);backdrop-filter:blur(10px);-webkit-backdrop-fi
   	<footer><span>ABDURRAHMAN // SEC</span><span>© 2026 — OFFENSIVE SECURITY RESEARCH BY ABDURRAHMAN</span><span>STATUS: <i></i> ONLINE</span></footer>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const percentText = document.getElementById("preloader-percent");
+  const statusText = document.getElementById("status-text");
+  const circle = document.querySelector(".ring-progress");
+  const preloader = document.getElementById("cyber-preloader");
 
+  const circumference = 596.9; 
+  circle.style.strokeDasharray = `${circumference} ${circumference}`;
+  circle.style.strokeDashoffset = circumference;
+
+
+  function updateProgress(percent) {
+    const offset = circumference - (percent / 100) * circumference;
+    circle.style.strokeDashoffset = offset;
+    percentText.innerText = `${Math.round(percent)}%`;
+
+
+    if (percent < 30) {
+      statusText.innerText = "Loading definitions...";
+    } else if (percent < 70) {
+      statusText.innerText = "Calibrating CVSS v3.1...";
+    } else if (percent < 95) {
+      statusText.innerText = "Security Matrix Active...";
+    } else {
+      statusText.innerText = "Ready";
+    }
+  }
+
+  let currentPercent = 0;
+
+
+  const interval = setInterval(() => {
+    if (currentPercent < 85) {
+      currentPercent += Math.random() * 3 + 1;
+      if (currentPercent > 85) currentPercent = 85;
+      updateProgress(currentPercent);
+    }
+  }, 90);
+
+
+  window.addEventListener("load", () => {
+    clearInterval(interval);
+
+    const finishInterval = setInterval(() => {
+      currentPercent += 4;
+      if (currentPercent >= 100) {
+        currentPercent = 100;
+        updateProgress(100);
+        clearInterval(finishInterval);
+
+
+        setTimeout(() => {
+          preloader.classList.add("fade-out");
+          setTimeout(() => {
+            preloader.style.display = "none";
+          }, 600);
+        }, 300);
+      } else {
+        updateProgress(currentPercent);
+      }
+    }, 25);
+  });
+});
+</script>
 
   	<script>
   		document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'})}}));
