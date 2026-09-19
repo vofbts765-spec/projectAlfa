@@ -323,6 +323,29 @@ html {scroll-behavior: smooth;}
 .btn-give-feedback {display: inline-block;padding: 12px 30px;font-size: 1rem;font-weight: bold;color: #ffffff;background: linear-gradient(135deg, #238636, #2ea043);border: 1px solid rgba(240, 246, 252, 0.1);border-radius: 6px;text-decoration: none;transition: all 0.3s ease;box-shadow: 0 4px 12px rgba(46, 160, 67, 0.3);}
 
 .btn-give-feedback:hover {background: linear-gradient(135deg, #2ea043, #3fb950);transform: translateY(-2px);box-shadow: 0 6px 16px rgba(46, 160, 67, 0.5);}
+
+
+
+
+.hosting-preview {position: relative;margin: 70px 0;padding: 45px;border: 1px solid rgba(255, 255, 255, 0.12);background: rgba(255, 255, 255, 0.025);overflow: hidden;}.hosting-preview::before {content: "";position: absolute;width: 180px;height: 180px;top: -90px;right: -90px;border: 1px solid rgba(255, 255, 255, 0.08);transform: rotate(45deg);}
+
+.hosting-label {font-family: monospace;font-size: 11px;letter-spacing: 2px;opacity: 0.55;margin-bottom: 25px;}.hosting-content {max-width: 850px;}.hosting-content h2 {margin: 0 0 20px;font-size: clamp(28px, 5vw, 48px);letter-spacing: -1px;}.hosting-content p {max-width: 760px;line-height: 1.8;font-size: 15px;opacity: 0.72;margin-bottom: 30px;}
+.hosting-btn,
+.hosting-close {border: 1px solid rgba(255, 255, 255, 0.3);background: transparent;color: inherit;padding: 13px 20px;font-family: monospace;font-size: 12px;letter-spacing: 1.5px;cursor: pointer;transition: 0.25s ease;}
+.hosting-btn span {margin-left: 10px;}.hosting-btn:hover,.hosting-close:hover {background: #fff;color: #000;}
+.hosting-modal {position: fixed;inset: 0;z-index: 99999;display: none;align-items: center;justify-content: center;padding: 25px;background: #050505;overflow-y: auto;}
+.hosting-modal.active {display: flex;}.hosting-modal-content {width: min(850px, 100%);text-align: center;padding: 40px 25px;}.hosting-status {font-family: monospace;font-size: 10px;letter-spacing: 2px;opacity: 0.45;margin-bottom: 30px;}.hosting-terminal {display: inline-flex;gap: 10px;flex-wrap: wrap;justify-content: center;font-family: monospace;font-size: 12px;margin-bottom: 35px;}.terminal-user {opacity: 0.5;}
+.terminal-command {opacity: 0.9;}.hosting-icon {width: 75px;height: 75px;margin: 0 auto 25px;border: 1px solid rgba(255,255,255,0.25);display: flex;align-items: center;justify-content: center;font-family: monospace;font-size: 22px;}.hosting-modal-content h1 {font-size: clamp(35px, 7vw, 65px);margin: 0;letter-spacing: -2px;}.hosting-modal-content h2 {margin: 8px 0 25px;font-family: monospace;font-size: 15px;font-weight: normal;letter-spacing: 3px;opacity: 0.55;}
+.hosting-modal-content p {max-width: 650px;margin: 0 auto 35px;line-height: 1.8;font-size: 14px;opacity: 0.65;}.hosting-progress {max-width: 450px;margin: 0 auto 35px;text-align: left;font-family: monospace;font-size: 10px;letter-spacing: 1px;}
+
+.progress-line {width: 100%;height: 3px;margin: 12px 0;background: rgba(255,255,255,0.1);overflow: hidden;}
+
+.progress-line div {width: 42%;height: 100%;background: currentColor;animation: hostingProgress 2.5s ease-in-out infinite alternate;}.hosting-progress small {opacity: 0.4;}
+
+@keyframes hostingProgress {from {width: 25%;}to {width: 65%;}}
+@media (max-width: 600px) {.hosting-preview {padding: 30px 20px; margin: 45px 0;}.hosting-content p { font-size: 14px; line-height: 1.7;}.hosting-modal {padding: 15px;}.hosting-modal-content {padding: 30px 15px;}.hosting-terminal {font-size: 10px;}
+
+    .hosting-icon {width: 65px;height: 65px;}.hosting-modal-content p {font-size: 13px;}}
 </style>
 </head>
 <body>
@@ -375,7 +398,8 @@ html {scroll-behavior: smooth;}
 			<a href="#skills">Skills</a>
 			<a href="#research">Research</a>
 			<a href="#project">Projects</a>
-			<a href="https://cyberresearch.netlify.app">Research Work</a>
+			<a href="#web-hosting">Web Hosting Platform</a>
+			
 		</div>
 			<a class="nav-cta" href="#contact">Let's connect</a>
 	</nav>
@@ -397,7 +421,7 @@ html {scroll-behavior: smooth;}
 					<a class="cinematic-btn calc-btn" href="#work">bug analyzer</a>
 					<a class="cinematic-btn" href="#tool">Cyber tool Box</a>
 					<a href="#community-review" class="cinematic-btn calc-btn">Community Review</a>
-					
+					<a href="#web-hosting" class="cinematic-btn">Web Hosting</a>
 				</div>
 				<div class="metrics">
 					<div><strong>WEB</strong><small>SECURITY</small></div>
@@ -705,7 +729,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			<p class="eyebrow">05 // PROJECTS</p>
 			<h2>Selected <span>Work</span></h2>
 			<div class="project-grid">
-				<article class="project featured"><div class="project-no">P02</div><div class="mini"><p>WEB SECURITY LAB</p><h3>Web Penetesting Lab</h3><p>A controlled lab for practicing reconnaissance, vulnerability discovery, exploitation validation and remediation notes.</p><a href="https://vofbts765-spec.github.io/case_study_web_pentesting/">Case study -></a></div></article>
+				<article class="project featured"><div class="project-no">P02</div><div class="mini"><p>WEB SECURITY LAB</p><h3>Web Penetesting Lab</h3><p>A controlled lab for practicing reconnaissance, vulnerability discovery, exploitation validation and remediation notes.</p><a href="#contact">Case study -></a></div></article>
 				<article class="project"><div class="project-no">P02</div><p class="mini">RESEARCH</p><h3>Security Notes</h3><p>Structured notes on vulnerabilities, tools, methodologies and lessons learned.</p><a href="#contact">Read more -></p></a></article>
 				<article class="project"><div class="project-no">P03</div><p class="mini">CTF / LABS</p><p>Hands-on practice environments focused on enumeration, web exploitation and Linux fundamentals.</p><a href="#contact">View profile -></a></article>
 
@@ -744,9 +768,82 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 <hr>
 		</section>
+<!-- WEB HOSTING — COMING SOON -->
+<section class="hosting-preview" id="web-hosting">
+
+    <div class="hosting-label">
+        NEW PLATFORM // WEB HOSTING
+    </div>
+
+    <div class="hosting-content">
+        <h2>Web Hosting <span>Platform</span></h2>
+
+        <p>
+            A modern web hosting platform is currently under development,
+            designed to provide a simple, secure, and reliable environment
+            for deploying websites with ease. Users will be able to upload
+            their web projects, manage their files, and publish them with a
+            dedicated live URL — all through a streamlined hosting experience.
+            The platform is currently in development and will be available soon.
+        </p>
+
+        <button class="hosting-btn" onclick="openHostingComingSoon()">
+            WEB HOSTING <span>→</span>
+        </button>
+    </div>
+
+</section>
+
+<section id="web-hosting" >
+	<div class="hosting-modal" id="hostingComingSoon">
+
+    	<div class="hosting-modal-content">
+
+        	<div class="hosting-status">
+            	[ PLATFORM STATUS // IN DEVELOPMENT ]
+        	</div>
+
+        	<div class="hosting-terminal">
+            	<span class="terminal-user">visitor@cyberalfa:~$</span>
+            	<span class="terminal-command">./launch --hosting</span>
+        	</div>
+
+        	<div class="hosting-icon">
+            	&lt;/&gt;
+        	</div>
+
+        	<h1>Web Hosting</h1>
+
+        	<h2><span>Coming Soon...</span></h2>
+
+        	<p>
+            	We are currently building a new web hosting platform focused on
+            	simplicity, reliability, and a better deployment experience.
+            	The system is still under active development and requires
+            	additional time before its public release.
+        	</p>
+
+        	<div class="hosting-progress">
+            	<span>BUILD STATUS</span>
+            	<div class="progress-line">
+                	<div></div>
+            	</div>
+            	<small>DEVELOPMENT IN PROGRESS</small>
+        	</div>
+
+        	<button class="hosting-close" onclick="closeHostingComingSoon()">
+            	← BACK TO WEBSITE
+        	</button>
+
+    	</div>
+
+	</div>
+</section>
 
 <section id="community-review" class="section contact">
+	<p class="eyebrow">06 // Feedback</p>
   <div class="review-container">
+  	
     <h2 class="review-title">Community Review & Feedback</h2>
     
 
@@ -763,7 +860,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </section>
 
     	<section id="contact" class="section contact">
-      	<p class="eyebrow">06 // CONTACT</p>
+      	<p class="eyebrow">07 // CONTACT</p>
       	<h2>Let's build something<br><span>more secure.</span></h2>
       	<p>For research collaboration, university projects, security discussions, or professional opportunities.</p>
       	<div class="contact-links">
@@ -913,7 +1010,32 @@ if (window.matchMedia("(max-width: 768px)").matches) {
     }, { passive: true });
 }
 </script>
-  	
+<script>
+    function openHostingComingSoon() {
+        const modal = document.getElementById("hostingComingSoon");
+
+        modal.classList.add("active");
+
+        // Prevent background scrolling
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeHostingComingSoon() {
+        const modal = document.getElementById("hostingComingSoon");
+
+        modal.classList.remove("active");
+
+        // Restore scrolling
+        document.body.style.overflow = "";
+    }
+
+    // Close with ESC key
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+            closeHostingComingSoon();
+        }
+    });
+</script>
 
 </body>
 </html>
