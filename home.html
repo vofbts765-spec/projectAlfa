@@ -2,6 +2,7 @@
 <html lang="en"> 
 <head>
 	<meta charset="utf-8">
+
 	<meta name="viewport" content="width=device-width, intitial-scale=1.0">
 	<meta name="description" content="Cybersecurity researcher and offensive security student protfolio">
 
@@ -890,7 +891,7 @@ document.addEventListener("DOMContentLoaded", () => {
       	<p>For research collaboration, university projects, security discussions, or professional opportunities.</p>
       	<div class="contact-links">
         	<a href="mailto:a39189682@gmail.com">email now -></a>
-        	<a href="https://github.com/vofbts765-spec/hackers" onclick="return false">GitHub -></a>
+        	<a href="https://github.com/vofbts765-spec/" onclick="return true">GitHub -></a>
         	<a href="https://www.linkedin.com/in/v-kpk-boy-200479420">LinkedIn -></a>
       	</div>
     	</section>
@@ -1062,5 +1063,691 @@ if (window.matchMedia("(max-width: 768px)").matches) {
     });
 </script>
 
+
+<!-- Added theme switcher: original website source above and below remains untouched. -->
+<style id="cyber-theme-switcher-styles">
+  #cyber-theme-toggle {
+    position: fixed !important;
+    right: 22px !important;
+    bottom: calc(22px + env(safe-area-inset-bottom, 0px)) !important;
+    z-index: 1000001 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 9px !important;
+    min-height: 46px !important;
+    padding: 0 17px !important;
+    border: 1px solid rgba(183, 255, 67, .48) !important;
+    border-radius: 999px !important;
+    background: rgba(7, 11, 12, .94) !important;
+    color: #b7ff43 !important;
+    font: 600 11px "JetBrains Mono", monospace !important;
+    letter-spacing: .06em !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, .34), 0 0 22px rgba(183, 255, 67, .10) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(12px) !important;
+    transition: transform .2s ease, background .2s ease, box-shadow .2s ease !important;
+  }
+  #cyber-theme-toggle:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .38), 0 0 25px rgba(183, 255, 67, .18) !important;
+  }
+  #cyber-theme-toggle:focus-visible {
+    outline: 3px solid #00d2ff !important;
+    outline-offset: 4px !important;
+  }
+  #cyber-theme-toggle .cyber-theme-icon {
+    font-size: 16px !important;
+    line-height: 1 !important;
+  }
+
+  /* Light palette: keeps the original green/blue cybersecurity identity. */
+  html[data-site-theme="light"] {
+    color-scheme: light;
+    --bg: #f3f7f3;
+    --panel: #ffffff;
+    --line: #d7e2d9;
+    --text: #17251d;
+    --muted: #586a60;
+    --green: #397d13;
+    --green2: #316d10;
+    --cin-green: rgba(57, 125, 19, 1);
+    --cin-green-soft: rgba(57, 125, 19, .12);
+    --cin-blue-soft: rgba(0, 140, 180, .07);
+    --cin-glass: rgba(255, 255, 255, .86);
+    --cin-shadow: 0 22px 55px rgba(31, 57, 39, .12);
+  }
+
+  html[data-site-theme="light"] body {
+    color: var(--text) !important;
+    background-color: var(--bg) !important;
+  }
+  html[data-site-theme="light"] .grid-bg { opacity: .10 !important; }
+  html[data-site-theme="light"] #bg-video {
+    opacity: .08 !important;
+    filter: saturate(.45) brightness(1.15) !important;
+  }
+  html[data-site-theme="light"] .video-overlay {
+    background: linear-gradient(180deg, rgba(243,247,243,.76), rgba(243,247,243,.94)) !important;
+  }
+
+  /* Header and hero */
+  html[data-site-theme="light"] .nav {
+    background: rgba(255,255,255,.91) !important;
+    border-bottom-color: var(--line) !important;
+    box-shadow: 0 10px 30px rgba(31,57,39,.07) !important;
+  }
+  html[data-site-theme="light"] .brand { color: var(--text) !important; }
+  html[data-site-theme="light"] .brand-name { color: var(--text) !important; }
+  html[data-site-theme="light"] .nav-links a,
+  html[data-site-theme="light"] .nav-cta { color: var(--muted) !important; }
+  html[data-site-theme="light"] .nav-links a:hover,
+  html[data-site-theme="light"] .nav-cta:hover { color: var(--green) !important; }
+  html[data-site-theme="light"] .nav-cta { border-color: var(--line) !important; }
+  html[data-site-theme="light"] .menu-toggle {
+    background: #fff !important;
+    color: var(--green) !important;
+    border-color: rgba(57,125,19,.30) !important;
+  }
+  html[data-site-theme="light"] .ghost { color: var(--text) !important; }
+  html[data-site-theme="light"] .lead,
+  html[data-site-theme="light"] .about-copy { color: var(--muted) !important; }
+
+  /* Terminal and small panels */
+  html[data-site-theme="light"] .terminal {
+    background: linear-gradient(145deg, #ffffff, #f1f6f2) !important;
+    border-color: #cbd9ce !important;
+    box-shadow: 0 22px 55px rgba(31,57,39,.13) !important;
+  }
+  html[data-site-theme="light"] .terminal-bar {
+    background: #edf3ee !important;
+    border-bottom-color: var(--line) !important;
+  }
+  html[data-site-theme="light"] .terminal-bar label { color: #586a60 !important; }
+  html[data-site-theme="light"] .terminal-body { color: #24372a !important; }
+  html[data-site-theme="light"] .terminal-body .output { color: #405449 !important; }
+  html[data-site-theme="light"] .orbit-card {
+    background: rgba(255,255,255,.90) !important;
+    border-color: var(--line) !important;
+    color: var(--green) !important;
+  }
+  html[data-site-theme="light"] .section { border-top-color: var(--line) !important; }
+
+  /* Skills, qualification, research and project surfaces */
+  html[data-site-theme="light"] .skill-grid,
+  html[data-site-theme="light"] .skill-grid article,
+  html[data-site-theme="light"] .research-list,
+  html[data-site-theme="light"] .research-list > div {
+    border-color: var(--line) !important;
+  }
+  html[data-site-theme="light"] .skill-grid article {
+    background: linear-gradient(145deg, #ffffff, #f5f8f5) !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.9) !important;
+  }
+  html[data-site-theme="light"] .skill-grid article:hover,
+  html[data-site-theme="light"] .project:hover {
+    background: #edf5ed !important;
+  }
+  html[data-site-theme="light"] .qual-card {
+    background: linear-gradient(145deg, #ffffff, #f4f8f5) !important;
+    border-color: #d6e2d8 !important;
+    box-shadow: 0 12px 32px rgba(31,57,39,.09) !important;
+  }
+  html[data-site-theme="light"] .qual-title { color: #1b2b21 !important; }
+  html[data-site-theme="light"] .qual-desc { color: #53645a !important; }
+  html[data-site-theme="light"] .qual-institution { color: #08788a !important; }
+  html[data-site-theme="light"] .thesis-card,
+  html[data-site-theme="light"] #research .thesis-card {
+    background: linear-gradient(135deg, #ffffff, #f2f7f3) !important;
+    border-color: #d3e0d6 !important;
+    box-shadow: 0 14px 36px rgba(31,57,39,.09) !important;
+  }
+  html[data-site-theme="light"] .thesis-title { color: var(--text) !important; }
+  html[data-site-theme="light"] .thesis-line { color: var(--muted) !important; }
+  html[data-site-theme="light"] .project-grid { background: var(--line) !important; border-color: var(--line) !important; }
+  html[data-site-theme="light"] .project { background: #fff !important; }
+  html[data-site-theme="light"] .project p { color: var(--muted) !important; }
+  html[data-site-theme="light"] .project a { color: var(--green) !important; }
+
+  /* Tool cards and download/feedback area */
+  html[data-site-theme="light"] .toolkit-showcase {
+    background: linear-gradient(145deg, #ffffff, #f0f6f1) !important;
+    border-color: rgba(57,125,19,.28) !important;
+    box-shadow: 0 18px 45px rgba(31,57,39,.10) !important;
+  }
+  html[data-site-theme="light"] .toolkit-showcase h3 { color: #1b2b21 !important; }
+  html[data-site-theme="light"] .toolkit-showcase p { color: #586a60 !important; }
+  html[data-site-theme="light"] .aegis-notice-card {
+    background: linear-gradient(145deg, #ffffff, #f3f7fb) !important;
+    border-color: #d4e0e8 !important;
+    box-shadow: 0 12px 32px rgba(31,57,39,.10) !important;
+  }
+  html[data-site-theme="light"] .aegis-notice-card::after { border-color: #ffffff transparent !important; }
+  html[data-site-theme="light"] .aegis-notice-card::before { border-color: #d4e0e8 transparent !important; }
+  html[data-site-theme="light"] .aegis-title,
+  html[data-site-theme="light"] .form-heading { color: #17251d !important; }
+  html[data-site-theme="light"] .aegis-text { color: #52645a !important; }
+  html[data-site-theme="light"] .aegis-input,
+  html[data-site-theme="light"] .aegis-textarea {
+    background: #ffffff !important;
+    color: #17251d !important;
+    border-color: #cbd8ce !important;
+  }
+  html[data-site-theme="light"] .aegis-secondary-btn {
+    background: #e4ebe5 !important;
+    color: #24372a !important;
+  }
+
+  /* Review and hosting sections */
+  html[data-site-theme="light"] .review-section {
+    background: #eaf1eb !important;
+    border-color: #d2dfd4 !important;
+  }
+  html[data-site-theme="light"] .review-desc { color: #586a60 !important; }
+  html[data-site-theme="light"] .contact-links a { color: var(--text) !important; }
+  html[data-site-theme="light"] .hosting-preview {
+    background: rgba(255,255,255,.82) !important;
+    border-color: #d5e0d7 !important;
+  }
+  html[data-site-theme="light"] .hosting-btn,
+  html[data-site-theme="light"] .hosting-close {
+    color: #26382c !important;
+    border-color: #9aac9e !important;
+  }
+  html[data-site-theme="light"] .hosting-btn:hover,
+  html[data-site-theme="light"] .hosting-close:hover {
+    background: #e5eee6 !important;
+    color: #17251d !important;
+  }
+  html[data-site-theme="light"] .hosting-modal {
+    background: #f3f7f3 !important;
+    color: #17251d !important;
+  }
+  html[data-site-theme="light"] .hosting-icon { border-color: #b9c9bd !important; }
+  html[data-site-theme="light"] footer {
+    background: rgba(255,255,255,.78) !important;
+    border-top-color: var(--line) !important;
+    color: #586a60 !important;
+  }
+
+  /* Preloader follows the selected theme too. */
+  html[data-site-theme="light"] #cyber-preloader {
+    background-color: #f3f7f3 !important;
+    color: #17251d !important;
+  }
+  html[data-site-theme="light"] #preloader-percent { color: #17251d !important; text-shadow: none !important; }
+  html[data-site-theme="light"] .preloader-subtitle { color: #08788a !important; text-shadow: none !important; }
+  html[data-site-theme="light"] #status-text { color: #586a60 !important; }
+  html[data-site-theme="light"] .ring-bg { stroke: rgba(57,125,19,.15) !important; }
+  html[data-site-theme="light"] .ring-progress { stroke: #397d13 !important; filter: none !important; }
+
+  html[data-site-theme="light"] #cyber-theme-toggle {
+    background: rgba(255,255,255,.96) !important;
+    color: #285f0c !important;
+    border-color: rgba(57,125,19,.38) !important;
+    box-shadow: 0 8px 26px rgba(31,57,39,.16), 0 0 18px rgba(57,125,19,.08) !important;
+  }
+
+  @media (max-width: 550px) {
+    #cyber-theme-toggle {
+      right: 14px !important;
+      bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+      min-height: 43px !important;
+      padding: 0 14px !important;
+      font-size: 10px !important;
+    }
+  }
+</style>
+
+<button id="cyber-theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch website theme">
+  <span class="cyber-theme-icon" aria-hidden="true">☀</span>
+  <span class="cyber-theme-label">Light mode</span>
+</button>
+
+<script>
+(function () {
+  'use strict';
+
+  // Correct the existing viewport setting at runtime without editing its source line.
+  var viewportMeta = document.querySelector('meta[name="viewport"]');
+  if (viewportMeta) {
+    viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, viewport-fit=cover');
+  }
+
+  var root = document.documentElement;
+  var button = document.getElementById('cyber-theme-toggle');
+  if (!button) return;
+
+  var label = button.querySelector('.cyber-theme-label');
+  var icon = button.querySelector('.cyber-theme-icon');
+  var storageKey = 'abdurrahman-portfolio-theme';
+  var currentTheme = 'dark';
+
+  try {
+    var savedTheme = window.localStorage.getItem(storageKey);
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      currentTheme = savedTheme;
+    }
+  } catch (error) {
+    // The toggle still works for this page view when storage is unavailable.
+  }
+
+  function applyTheme(theme) {
+    currentTheme = theme === 'light' ? 'light' : 'dark';
+    root.setAttribute('data-site-theme', currentTheme);
+
+    var switchToLight = currentTheme === 'dark';
+    label.textContent = switchToLight ? 'Light mode' : 'Dark mode';
+    icon.textContent = switchToLight ? '☀' : '☾';
+    button.setAttribute('aria-label', switchToLight ? 'Switch to light mode' : 'Switch to dark mode');
+    button.setAttribute('aria-pressed', currentTheme === 'light' ? 'true' : 'false');
+
+    try {
+      window.localStorage.setItem(storageKey, currentTheme);
+    } catch (error) {
+      // Theme switching remains available even if the browser blocks storage.
+    }
+  }
+
+  button.addEventListener('click', function () {
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  });
+
+  applyTheme(currentTheme);
+})();
+</script>
+
+
+
+<!-- Cursor recovery add-on: keeps the original cinematic cursor and adds a visible fallback. -->
+<style id="cyber-cursor-recovery-fix">
+  @media (min-width: 769px) and (pointer: fine) {
+    /* Never leave the user without a pointer while the custom cursor starts. */
+    body,
+    body * {
+      cursor: auto !important;
+    }
+    a, button, [role="button"], select {
+      cursor: pointer !important;
+    }
+    input, textarea {
+      cursor: text !important;
+    }
+
+    /* Hide the system cursor only after the custom cursor elements are ready. */
+    html[data-cinematic-cursor-ready="true"] body,
+    html[data-cinematic-cursor-ready="true"] body * {
+      cursor: none !important;
+    }
+
+    .cinematic-cursor,
+    .cinematic-cursor-ring {
+      position: fixed !important;
+      display: block !important;
+      visibility: visible !important;
+      pointer-events: none !important;
+      z-index: 2147483646 !important;
+      transform: translate(-50%, -50%);
+    }
+    .cinematic-cursor {
+      width: 7px !important;
+      height: 7px !important;
+      border-radius: 50% !important;
+      background: var(--green) !important;
+      box-shadow: 0 0 6px var(--green), 0 0 14px var(--green),
+                  0 0 28px rgba(183,255,67,.65) !important;
+    }
+    .cinematic-cursor-ring {
+      width: 34px !important;
+      height: 34px !important;
+      border: 1px solid rgba(183,255,67,.65) !important;
+      border-radius: 50% !important;
+      box-shadow: 0 0 12px rgba(183,255,67,.16),
+                  inset 0 0 10px rgba(183,255,67,.05) !important;
+      transition: width .2s ease, height .2s ease, border-color .2s ease,
+                  background .2s ease, opacity .12s ease !important;
+    }
+    body.cursor-hover .cinematic-cursor-ring {
+      width: 48px !important;
+      height: 48px !important;
+      border-color: var(--green) !important;
+      background: rgba(183,255,67,.04) !important;
+      box-shadow: 0 0 20px rgba(183,255,67,.22),
+                  inset 0 0 15px rgba(183,255,67,.06) !important;
+    }
+  }
+</style>
+
+<script>
+(function () {
+  'use strict';
+
+  // Use the same desktop/mouse condition as the original website cursor.
+  var desktopMouse = window.matchMedia &&
+    window.matchMedia('(min-width: 769px) and (pointer: fine)').matches;
+  if (!desktopMouse) return;
+
+  var root = document.documentElement;
+  var dot = document.querySelector('.cinematic-cursor');
+  var ring = document.querySelector('.cinematic-cursor-ring');
+
+  // Reuse the original elements when present; create them only if an earlier
+  // script did not finish successfully.
+  if (!dot) {
+    dot = document.createElement('div');
+    dot.className = 'cinematic-cursor';
+    document.body.appendChild(dot);
+  }
+  if (!ring) {
+    ring = document.createElement('div');
+    ring.className = 'cinematic-cursor-ring';
+    document.body.appendChild(ring);
+  }
+
+  var mouseX = window.innerWidth / 2;
+  var mouseY = window.innerHeight / 2;
+  var ringX = mouseX;
+  var ringY = mouseY;
+  var hasMoved = false;
+
+  dot.style.left = '-100px';
+  dot.style.top = '-100px';
+  dot.style.opacity = '0';
+  ring.style.left = '-100px';
+  ring.style.top = '-100px';
+  ring.style.opacity = '0';
+
+  function moveCursor(event) {
+    if (event.pointerType && event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+    dot.style.opacity = '1';
+    ring.style.opacity = '1';
+    hasMoved = true;
+
+    // Only hide the native pointer after the custom dot/ring have coordinates.
+    if (root.getAttribute('data-cinematic-cursor-ready') !== 'true') {
+      root.setAttribute('data-cinematic-cursor-ready', 'true');
+    }
+  }
+
+  // Pointer events cover modern browsers; mousemove is a compatibility fallback.
+  window.addEventListener('pointermove', moveCursor, { passive: true });
+  window.addEventListener('mousemove', moveCursor, { passive: true });
+
+  function animateRing() {
+    if (hasMoved) {
+      ringX += (mouseX - ringX) * 0.14;
+      ringY += (mouseY - ringY) * 0.14;
+      ring.style.left = ringX + 'px';
+      ring.style.top = ringY + 'px';
+    }
+    window.requestAnimationFrame(animateRing);
+  }
+  window.requestAnimationFrame(animateRing);
+
+  // Delegated hover handling also covers the theme button added after the
+  // original cursor script was initialized.
+  document.addEventListener('pointerover', function (event) {
+    if (event.target && event.target.closest &&
+        event.target.closest('a, button, input, textarea, select, [role="button"]')) {
+      document.body.classList.add('cursor-hover');
+    }
+  });
+  document.addEventListener('pointerout', function (event) {
+    var next = event.relatedTarget;
+    if (!next || !next.closest ||
+        !next.closest('a, button, input, textarea, select, [role="button"]')) {
+      document.body.classList.remove('cursor-hover');
+    }
+  });
+
+  // Until the first pointer movement, the regular system cursor stays visible.
+})();
+</script>
+
 </body>
 </html>
+
+<!-- Pixabay video theme transition add-on. The prior website, theme switcher and cursor code above remain unchanged. -->
+<style id="cyber-video-theme-transition-styles">
+  html.cyber-video-transition body,
+  html.cyber-video-transition body * {
+    transition-property: color, background-color, border-color, box-shadow, text-shadow, fill, stroke !important;
+    transition-duration: .82s !important;
+    transition-timing-function: cubic-bezier(.22,.7,.2,1) !important;
+  }
+
+  #cyber-theme-toggle {
+    z-index: 2147483647 !important;
+  }
+
+  #cyber-theme-video-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2147483645;
+    isolation: isolate;
+    background: #07100d;
+    opacity: 1;
+  }
+
+  #cyber-theme-video-overlay::before {
+    content: "";
+    position: absolute;
+    inset: -25%;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(183,255,67,.28), transparent 36%),
+      conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(0,210,255,.20) 65deg, transparent 130deg, rgba(183,255,67,.24) 220deg, transparent 300deg);
+    filter: blur(18px);
+    opacity: .9;
+    transform: scale(.45) rotate(-18deg);
+    animation: cyber-video-fallback-wash 1.25s ease-in-out infinite alternate;
+  }
+
+  #cyber-theme-video-overlay video {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transform: scale(1.08);
+    filter: saturate(1.18) contrast(1.08);
+    transition: opacity .38s ease, transform 2.2s cubic-bezier(.2,.65,.2,1);
+  }
+
+  #cyber-theme-video-overlay.video-ready::before {
+    opacity: 0;
+    animation: none;
+  }
+
+  #cyber-theme-video-overlay.video-fallback::before {
+    animation: cyber-video-fallback-wash 1.15s cubic-bezier(.2,.65,.2,1) forwards;
+  }
+
+  #cyber-theme-video-overlay.video-ready video {
+    opacity: .88;
+    transform: scale(1);
+  }
+
+  #cyber-theme-video-overlay.video-ready {
+    animation: cyber-video-overlay-fade 2.15s cubic-bezier(.22,.7,.2,1) forwards;
+  }
+
+  #cyber-theme-video-overlay.video-fallback {
+    animation: cyber-video-fallback-fade 1.45s cubic-bezier(.22,.7,.2,1) forwards;
+  }
+
+  #cyber-theme-video-overlay.video-fallback video {
+    display: none;
+  }
+
+  #cyber-theme-video-overlay.to-light::after,
+  #cyber-theme-video-overlay.to-dark::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  #cyber-theme-video-overlay.to-light::after {
+    background: linear-gradient(115deg, rgba(242,248,242,.08), rgba(255,255,255,.18), rgba(0,210,255,.08));
+    mix-blend-mode: screen;
+  }
+
+  #cyber-theme-video-overlay.to-dark::after {
+    background: linear-gradient(115deg, rgba(4,8,10,.10), rgba(0,0,0,.20), rgba(183,255,67,.08));
+    mix-blend-mode: screen;
+  }
+
+  @keyframes cyber-video-fallback-wash {
+    0% { opacity: 0; transform: scale(.35) rotate(-24deg); }
+    35% { opacity: .95; }
+    100% { opacity: 0; transform: scale(1.65) rotate(24deg); }
+  }
+
+  @keyframes cyber-video-overlay-fade {
+    0% { opacity: 0; }
+    12% { opacity: 1; }
+    67% { opacity: .96; }
+    100% { opacity: 0; }
+  }
+
+  @keyframes cyber-video-fallback-fade {
+    0% { opacity: 1; }
+    65% { opacity: .9; }
+    100% { opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.cyber-video-transition body,
+    html.cyber-video-transition body * {
+      transition-duration: .01ms !important;
+    }
+  }
+</style>
+
+<script id="cyber-video-theme-transition-script">
+(function () {
+  'use strict';
+
+  var root = document.documentElement;
+  var themeButtonId = 'cyber-theme-toggle';
+  var videoURL = 'https://pixabay.com/videos/download/video-300488_medium.mp4';
+  var transitionClassTimer = null;
+  var overlayTimer = null;
+  var loadFailTimer = null;
+  var activeOverlay = null;
+
+  function removeOverlay() {
+    window.clearTimeout(overlayTimer);
+    window.clearTimeout(loadFailTimer);
+    if (activeOverlay) {
+      var video = activeOverlay.querySelector('video');
+      if (video) {
+        try { video.pause(); } catch (error) {}
+        video.removeAttribute('src');
+        try { video.load(); } catch (error) {}
+      }
+      if (activeOverlay.parentNode) activeOverlay.parentNode.removeChild(activeOverlay);
+      activeOverlay = null;
+    }
+  }
+
+  function showFallback(overlay) {
+    if (!overlay || overlay !== activeOverlay || overlay.classList.contains('video-ready')) return;
+    window.clearTimeout(loadFailTimer);
+    overlay.classList.add('video-fallback');
+    overlayTimer = window.setTimeout(removeOverlay, 1550);
+  }
+
+  function playVideoTransition(theme) {
+    var reducedMotion = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    window.clearTimeout(transitionClassTimer);
+    root.classList.add('cyber-video-transition');
+    transitionClassTimer = window.setTimeout(function () {
+      root.classList.remove('cyber-video-transition');
+    }, 1050);
+
+    if (reducedMotion) return;
+
+    removeOverlay();
+
+    var overlay = document.createElement('div');
+    overlay.id = 'cyber-theme-video-overlay';
+    overlay.className = theme === 'light' ? 'to-light' : 'to-dark';
+    overlay.setAttribute('aria-hidden', 'true');
+
+    var video = document.createElement('video');
+    video.muted = true;
+    video.defaultMuted = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.preload = 'auto';
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('aria-hidden', 'true');
+    video.disablePictureInPicture = true;
+    video.src = videoURL;
+
+    overlay.appendChild(video);
+    document.body.appendChild(overlay);
+    activeOverlay = overlay;
+
+    video.addEventListener('playing', function () {
+      if (overlay !== activeOverlay) return;
+      window.clearTimeout(loadFailTimer);
+      overlay.classList.remove('video-fallback');
+      overlay.classList.add('video-ready');
+      overlayTimer = window.setTimeout(removeOverlay, 2200);
+    }, { once: true });
+
+    video.addEventListener('error', function () {
+      showFallback(overlay);
+    }, { once: true });
+
+    // Keep a graceful animated wash if Pixabay blocks direct playback or takes too long.
+    loadFailTimer = window.setTimeout(function () {
+      showFallback(overlay);
+    }, 2400);
+
+    try {
+      var playRequest = video.play();
+      if (playRequest && typeof playRequest.catch === 'function') {
+        playRequest.catch(function () { showFallback(overlay); });
+      }
+    } catch (error) {
+      showFallback(overlay);
+    }
+  }
+
+  // Capture runs before the theme button's own click handler, so CSS transitions
+  // are active before the theme colors change.
+  document.addEventListener('click', function (event) {
+    var target = event.target;
+    var button = target && target.closest ? target.closest('#' + themeButtonId) : null;
+    if (!button) return;
+
+    var currentTheme = root.getAttribute('data-site-theme') || 'dark';
+    var nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    playVideoTransition(nextTheme);
+  }, true);
+})();
+</script>
