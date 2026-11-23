@@ -1,0 +1,139 @@
+@media (min-width: 769px) and (pointer: fine) {
+
+    body {cursor: none;}
+
+    a,
+    button,
+    input,
+    textarea,
+    select {
+        cursor: none;
+    }
+.cinematic-cursor,.cinematic-cursor-ring {    position: fixed;    top: 0;    left: 0;    pointer-events: none;    z-index: 999999;    border-radius: 50%;    transform: translate(-50%, -50%);}
+    /* Glowing center */
+    .cinematic-cursor {width: 7px;height: 7px;background: var(--green);box-shadow:    0 0 6px var(--green),    0 0 14px var(--green),    0 0 28px rgba(183, 255, 67, 0.65);}
+    /* Cinematic outer ring */
+    .cinematic-cursor-ring {width: 34px;height: 34px;border: 1px solid rgba(183, 255, 67, 0.65);box-shadow:    0 0 12px rgba(183, 255, 67, 0.16),    inset 0 0 10px rgba(183, 255, 67, 0.05);transition:   width 0.2s ease,   height 0.2s ease,    border-color 0.2s ease,    background 0.2s ease;}
+    /* Small cyber crosshair */
+    .cinematic-cursor-ring::before,.cinematic-cursor-ring::after {content: "";position: absolute;background: rgba(183, 255, 67, 0.5);}.cinematic-cursor-ring::before {width: 6px;height: 1px;top: 50%;left: -9px;}.cinematic-cursor-ring::after {width: 6px;height: 1px;top: 50%;right: -9px;}
+    /* Hover state */
+    body.cursor-hover .cinematic-cursor-ring {width: 48px;height: 48px;border-color: var(--green);background: rgba(183, 255, 67, 0.04);box-shadow:    0 0 20px rgba(183, 255, 67, 0.22),    inset 0 0 15px rgba(183, 255, 67, 0.06);}body.cursor-hover .cinematic-cursor {transform: translate(-50%, -50%) scale(1.4);}}
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+    .tap-boom {position: fixed;width: 12px;height: 12px;border: 2px solid var(--green);border-radius: 50%;pointer-events: none;z-index: 999999;transform: translate(-50%, -50%) scale(0.2);box-shadow:    0 0 8px var(--green),    0 0 18px rgba(183, 255, 67, 0.55),    0 0 35px rgba(183, 255, 67, 0.25);animation: tapBoom 0.55s ease-out forwards;}.tap-boom::before,.tap-boom::after {    content: "";position: absolute;left: 50%;top: 50%;width: 4px;height: 4px;background: var(--green);border-radius: 50%;transform: translate(-50%, -50%);box-shadow:    0 -28px 0 rgba(183, 255, 67, 0.7),    0 28px 0 rgba(183, 255, 67, 0.7),    -28px 0 0 rgba(183, 255, 67, 0.7),    28px 0 0 rgba(183, 255, 67, 0.7);}
+
+    .tap-boom::after {box-shadow:    0 -18px 0 rgba(183, 255, 67, 0.35),    0 18px 0 rgba(183, 255, 67, 0.35),    -18px 0 0 rgba(183, 255, 67, 0.35),    18px 0 0 rgba(183, 255, 67, 0.35);}
+    @keyframes tapBoom {0% {    opacity: 1;    transform: translate(-50%, -50%) scale(0.2);}45% {    opacity: 0.9;    transform: translate(-50%, -50%) scale(1.8);}100% {    opacity: 0;    transform: translate(-50%, -50%) scale(2.8);}}}
+
+/* ===== CYBER TOOLKIT — CINEMATIC LAUNCH CARD ===== */
+.toolkit-showcase{position:relative;margin:45px 0 30px;padding:38px;border:1px solid rgba(183,255,67,.25);border-radius:10px;background:linear-gradient(145deg,rgba(10,13,14,.92),rgba(5,6,7,.96));box-shadow:0 25px 70px rgba(0,0,0,.45),inset 0 1px rgba(255,255,255,.03);overflow:hidden;}
+.toolkit-showcase::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 12% 18%,rgba(183,255,67,.09),transparent 38%),radial-gradient(circle at 92% 90%,rgba(183,255,67,.05),transparent 40%);}
+.toolkit-badge{position:relative;font:11px "JetBrains Mono";color:var(--green);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;display:inline-flex;align-items:center;gap:8px}
+.toolkit-badge i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);display:inline-block;animation:blink 1.4s steps(2) infinite}
+.toolkit-showcase h3{position:relative;font-size:clamp(26px,3.4vw,40px);margin:0 0 14px;color:#fff;letter-spacing:-.02em;font-weight:600}
+.toolkit-showcase h3 span{color:var(--green)}
+.toolkit-showcase p{position:relative;color:var(--muted);font-size:15px;line-height:1.8;max-width:640px;margin:0 0 28px}
+.cinematic-btn{position:relative;display:inline-flex;align-items:center;gap:10px;padding:16px 28px;font:12px "JetBrains Mono";text-transform:uppercase;letter-spacing:.08em;color:#080a08;background:var(--green);text-decoration:none;border-radius:3px;border:1px solid var(--green);overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;}
+.cinematic-btn::before{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);transition:left .6s ease;}
+.cinematic-btn:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(183,255,67,.35)}
+.cinematic-btn:hover::before{left:120%}
+.cinematic-btn .arrow{transition:transform .3s ease;display:inline-block}
+.cinematic-btn:hover .arrow{transform:translateX(5px)}
+
+.bug-bounty-card {border-color: rgba(183, 255, 67, 0.35);background: linear-gradient(145deg, rgba(8, 12, 13, 0.95), rgba(4, 7, 8, 0.98));
+	margin-top: 30px;}.bug-bounty-card:hover {border-color: var(--green);
+	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(183, 255, 67, 0.12);}
+.calc-btn {background: transparent;color: var(--green);border: 1px solid var(--green);}.calc-btn:hover {	background: var(--green);
+	color: #080a08;box-shadow: 0 10px 30px rgba(183, 255, 67, 0.3);}
+
+
+
+
+
+
+
+#cyber-preloader {position: fixed;top: 0;left: 0;width: 100vw;height: 100vh;height: 100dvh;background-color: #080c14;display: flex;justify-content: center;align-items: center;z-index: 999999;opacity: 1;transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;box-sizing: border-box;font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;overflow: hidden;}
+
+#cyber-preloader.fade-out {opacity: 0;visibility: hidden;}
+.preloader-content {display: flex;flex-direction: column;align-items: center;justify-content: center;width: 100%;max-width: 360px;padding: 20px;}
+#preloader-percent {color: #ffffff;font-size: clamp(28px, 6vw, 38px);font-weight: 800;letter-spacing: 1px;text-shadow: 0 0 15px rgba(0, 242, 255, 0.8); margin-bottom: 4px;}
+.preloader-subtitle {color: #00f2ff;font-size: clamp(11px, 2.5vw, 13px);font-weight: 700;letter-spacing: 2px;text-transform: uppercase;margin-bottom: 25px;opacity: 0.9;text-shadow: 0 0 8px rgba(0, 242, 255, 0.5);text-align: center;}
+.logo-wrapper {position: relative;width: min(210px, 55vw);height: min(210px, 55vw);display: flex;justify-content: center;align-items: center;margin-bottom: 25px;}
+.logo-inner {width: 65%;height: 65%;border-radius: 50%;overflow: hidden;display: flex;justify-content: center;align-items: center;z-index: 2;box-shadow: 0 0 25px rgba(0, 242, 255, 0.2);}
+#preloader-logo {width: 100%;height: 100%;object-fit: cover;}
+.progress-ring {position: absolute;  top: 0;left: 0;width: 100%;height: 100%;transform: rotate(-90deg); 
+}
+.ring-bg {stroke: rgba(0, 242, 255, 0.12);stroke-width: 5;fill: transparent;}
+.ring-progress { stroke: #00f2ff;  stroke-width: 5;fill: transparent;stroke-linecap: round;stroke-dasharray: 596.9; stroke-dashoffset: 596.9;transition: stroke-dashoffset 0.15s ease-out;filter: drop-shadow(0px 0px 10px #00f2ff);}
+.status-container {display: flex;align-items: center;gap: 8px;background: rgba(0, 242, 255, 0.05);border: 1px solid rgba(0, 242, 255, 0.2);padding: 6px 16px;border-radius: 20px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);}
+.pulse-dot {width: 8px;height: 8px;background-color: #00f2ff;border-radius: 50%;box-shadow: 0 0 10px #00f2ff; animation: pulse 1.2s infinite ease-in-out;}
+@keyframes pulse {0% { opacity: 0.3; transform: scale(0.8); }50% { opacity: 1; transform: scale(1.2); }100% { opacity: 0.3; transform: scale(0.8); }}
+#status-text {color: #a0aec0;font-size: clamp(11px, 2.2vw, 13px);font-family: monospace, monospace;letter-spacing: 0.5px;}
+
+.brand {display: flex;align-items: center;gap: 12px;text-decoration: none;}
+.brand-logo-container {position: relative;width: 70px; height: 70px; border-radius: 50%;padding: 2px;background: linear-gradient(135deg, #00f2ff, rgba(0, 242, 255, 0.2));box-shadow: 0 0 12px rgba(0, 242, 255, 0.5);transition: transform 0.3s ease, box-shadow 0.3s ease;display: flex;justify-content: center;align-items: center;flex-shrink: 0;}
+
+
+.nav-logo {width: 100%;height: 100%;object-fit: cover;border-radius: 50%;}.brand:hover .brand-logo-container {transform: scale(1.08);box-shadow: 0 0 20px rgba(0, 242, 255, 0.9);}
+.brand-text {display: flex;align-items: center;gap: 8px;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;}.brand-name {color: #ffffff;font-weight: 800;
+  letter-spacing: 1.5px;font-size: 16px;text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);}
+
+.brand-tag { color: #00f2ff; font-weight: 600; font-size: 13px; letter-spacing: 1px; text-shadow: 0 0 8px rgba(0, 242, 255, 0.6);}@media (max-width: 1024px) {
+  .brand-logo-container {width: 60px;height: 60px;}.brand-name {font-size: 15px;} 
+  .brand-tag {font-size: 12px;}}
+@media (max-width: 768px) {
+  .brand-logo-container {width: 52px;height: 52px;padding: 1.5px;}
+  .brand-name { font-size: 14px; letter-spacing: 1px;}.brand-tag { font-size: 11px; letter-spacing: 0.5px;}
+  .brand { gap: 10px;}}
+
+
+@media (max-width: 480px) {
+  .brand-logo-container { width: 48px;height: 48px;padding: 1px;}.brand-name {font-size: 13px;letter-spacing: 0.8px;}.brand-tag {font-size: 10px;letter-spacing: 0.3px; }
+  .brand {  gap: 8px;}}
+/* Cyberpunk Feedback Button Styling */
+.cyber-feedback-btn {display: inline-flex;align-items: center;justify-content: center;gap: 10px;background: rgba(0, 242, 254, 0.05);color: #00f2fe;border: 1px solid #00f2fe;
+  padding: 10px 22px;font-family: 'Orbitron', 'Poppins', sans-serif;font-size: 13px;font-weight: 700;letter-spacing: 1.5px;text-decoration: none;text-transform: uppercase;border-radius: 6px;cursor: pointer;
+  position: relative;overflow: hidden;transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);box-shadow: 0 0 10px rgba(0, 242, 254, 0.15), inset 0 0 10px rgba(0, 242, 254, 0.05);}.cyber-feedback-btn:hover {
+  background: #00f2fe;color: #07090e;box-shadow: 0 0 25px rgba(0, 242, 254, 0.6), 0 0 5px #00f2fe;transform: translateY(-2px);}
+.cyber-feedback-btn:active {transform: translateY(0);box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);}
+/.cyber-feedback-btn i {font-size: 14px;transition: transform 0.3s ease;}.cyber-feedback-btn:hover i {transform: scale(1.15);}
+html {scroll-behavior: smooth;}
+
+.review-section {padding: 60px 20px;background-color: #0d1117;border-top: 1px solid #30363d;border-bottom: 1px solid #30363d;text-align: center;margin-top: 50px;}
+.review-container {max-width: 750px;margin: 0 auto;}.review-title {font-size: 2rem;color: #58a6ff;margin-bottom: 15px;font-family: 'Courier New', Courier, monospace;}.review-desc {
+  font-size: 1.05rem;line-height: 1.6;color: #8b949e;margin-bottom: 25px;}
+.btn-give-feedback {display: inline-block;padding: 12px 30px;font-size: 1rem;font-weight: bold;color: #ffffff;background: linear-gradient(135deg, #238636, #2ea043);border: 1px solid rgba(240, 246, 252, 0.1);border-radius: 6px;text-decoration: none;transition: all 0.3s ease;box-shadow: 0 4px 12px rgba(46, 160, 67, 0.3);}
+
+.btn-give-feedback:hover {background: linear-gradient(135deg, #2ea043, #3fb950);transform: translateY(-2px);box-shadow: 0 6px 16px rgba(46, 160, 67, 0.5);}
+
+
+
+
+.hosting-preview {position: relative;margin: 70px 0;padding: 45px;border: 1px solid rgba(255, 255, 255, 0.12);background: rgba(255, 255, 255, 0.025);overflow: hidden;}.hosting-preview::before {content: "";position: absolute;width: 180px;height: 180px;top: -90px;right: -90px;border: 1px solid rgba(255, 255, 255, 0.08);transform: rotate(45deg);}
+
+.hosting-label {font-family: monospace;font-size: 11px;letter-spacing: 2px;opacity: 0.55;margin-bottom: 25px;}.hosting-content {max-width: 850px;}.hosting-content h2 {margin: 0 0 20px;font-size: clamp(28px, 5vw, 48px);letter-spacing: -1px;}.hosting-content p {max-width: 760px;line-height: 1.8;font-size: 15px;opacity: 0.72;margin-bottom: 30px;}
+.hosting-btn,
+.hosting-close {border: 1px solid rgba(255, 255, 255, 0.3);background: transparent;color: inherit;padding: 13px 20px;font-family: monospace;font-size: 12px;letter-spacing: 1.5px;cursor: pointer;transition: 0.25s ease;}
+.hosting-btn span {margin-left: 10px;}.hosting-btn:hover,.hosting-close:hover {background: #fff;color: #000;}
+.hosting-modal {position: fixed;inset: 0;z-index: 99999;display: none;align-items: center;justify-content: center;padding: 25px;background: #050505;overflow-y: auto;}
+.hosting-modal.active {display: flex;}.hosting-modal-content {width: min(850px, 100%);text-align: center;padding: 40px 25px;}.hosting-status {font-family: monospace;font-size: 10px;letter-spacing: 2px;opacity: 0.45;margin-bottom: 30px;}.hosting-terminal {display: inline-flex;gap: 10px;flex-wrap: wrap;justify-content: center;font-family: monospace;font-size: 12px;margin-bottom: 35px;}.terminal-user {opacity: 0.5;}
+.terminal-command {opacity: 0.9;}.hosting-icon {width: 75px;height: 75px;margin: 0 auto 25px;border: 1px solid rgba(255,255,255,0.25);display: flex;align-items: center;justify-content: center;font-family: monospace;font-size: 22px;}.hosting-modal-content h1 {font-size: clamp(35px, 7vw, 65px);margin: 0;letter-spacing: -2px;}.hosting-modal-content h2 {margin: 8px 0 25px;font-family: monospace;font-size: 15px;font-weight: normal;letter-spacing: 3px;opacity: 0.55;}
+.hosting-modal-content p {max-width: 650px;margin: 0 auto 35px;line-height: 1.8;font-size: 14px;opacity: 0.65;}.hosting-progress {max-width: 450px;margin: 0 auto 35px;text-align: left;font-family: monospace;font-size: 10px;letter-spacing: 1px;}
+
+.progress-line {width: 100%;height: 3px;margin: 12px 0;background: rgba(255,255,255,0.1);overflow: hidden;}
+
+.progress-line div {width: 42%;height: 100%;background: currentColor;animation: hostingProgress 2.5s ease-in-out infinite alternate;}.hosting-progress small {opacity: 0.4;}
+
+@keyframes hostingProgress {from {width: 25%;}to {width: 65%;}}
+@media (max-width: 600px) {.hosting-preview {padding: 30px 20px; margin: 45px 0;}.hosting-content p { font-size: 14px; line-height: 1.7;}.hosting-modal {padding: 15px;}.hosting-modal-content {padding: 30px 15px;}.hosting-terminal {font-size: 10px;}
+
+    .hosting-icon {width: 65px;height: 65px;}.hosting-modal-content p {font-size: 13px;}}
