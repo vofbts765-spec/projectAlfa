@@ -555,9 +555,9 @@ html {scroll-behavior: smooth;}
 		<section id="home" class="hero">
 			<div class="hero-copy">
 				<div class="status"><i></i> AVAILABLE FOR RESEARCH & COLLABORATION</div>
-				<p class="eyebrow">CYBERSECURITY // OFFENSIVE SECURITY</p>
-				<h1>Breaking systems.<br><span>Understanding</span> them.<br>Securing them.</h1>
-				<p class="hero-actions">I’m Abdurrahman, a cybersecurity student exploring different areas of security, including web penetration testing, reverse engineering, Android APK analysis, and Security Operations Center (SOC) analysis. I’ve covered cybersecurity fundamentals and continue to build practical skills through hands-on projects, security labs, and SOC challenges. I enjoy understanding how applications work, identifying security weaknesses, and learning how security teams detect and investigate threats.</p>
+				<p class="eyebrow" data-cms="heroEyebrow">CYBERSECURITY // OFFENSIVE SECURITY</p>
+				<h1 data-cms="heroTitle" data-cms-format="headline">Breaking systems.<br><span>Understanding</span> them.<br>Securing them.</h1>
+				<p class="hero-actions" data-cms="heroDescription">I’m Abdurrahman, a cybersecurity student exploring different areas of security, including web penetration testing, reverse engineering, Android APK analysis, and Security Operations Center (SOC) analysis. I’ve covered cybersecurity fundamentals and continue to build practical skills through hands-on projects, security labs, and SOC challenges. I enjoy understanding how applications work, identifying security weaknesses, and learning how security teams detect and investigate threats.</p>
 				<div class="hero-actions">
 					<a class="btn primary" href="#project">View my work<b>-></b></a>
 					<a class="btn ghost" href="#contact">Contact me</a>
@@ -1010,7 +1010,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 			<div class="about-copy">
-				<p>I’m building my cybersecurity knowledge across both offensive and defensive security. My current focus includes web application testing, reverse engineering, and Android APK analysis, while I also spend time learning SOC workflows and practising security investigation challenges. Rather than limiting myself to one area, I want to understand how vulnerabilities are discovered, how applications behave internally, and how security incidents can be detected and investigated. I use personal projects and practical exercises to turn what I learn into experience.</p>
+				<p data-cms="aboutText">I’m building my cybersecurity knowledge across both offensive and defensive security. My current focus includes web application testing, reverse engineering, and Android APK analysis, while I also spend time learning SOC workflows and practising security investigation challenges. Rather than limiting myself to one area, I want to understand how vulnerabilities are discovered, how applications behave internally, and how security incidents can be detected and investigated. I use personal projects and practical exercises to turn what I learn into experience.</p>
 				<p class="muted">This portfolio is designed as a living research profile - projects, write-ups, CTF, and certifications can be added as the journey grows.</p>
 			</div>
 		</section>
@@ -1398,14 +1398,14 @@ document.addEventListener("DOMContentLoaded", () => {
       	<h2>Let's build something<br><span>more secure.</span></h2>
       	<p>For research collaboration, university projects, security discussions, or professional opportunities.</p>
       	<div class="contact-links">
-        	<a href="mailto:a39189682@gmail.com">email now -></a>
-        	<a href="https://github.com/vofbts765-spec/" onclick="return true">GitHub -></a>
-        	<a href="https://www.linkedin.com/in/v-kpk-boy-200479420">LinkedIn -></a>
+        	<a href="mailto:a39189682@gmail.com" data-cms-href="contactEmail" data-cms-href-prefix="mailto:">email now -></a>
+        	<a href="https://github.com/vofbts765-spec/" onclick="return true" data-cms-href="githubUrl">GitHub -></a>
+        	<a href="https://www.linkedin.com/in/v-kpk-boy-200479420" data-cms-href="linkedinUrl">LinkedIn -></a>
       	</div>
     	</section>
   	</main>
 
-  	<footer><span>ABDURRAHMAN // SEC</span><span>© 2026 — OFFENSIVE SECURITY RESEARCH BY ABDURRAHMAN</span><span>STATUS: <i></i> ONLINE</span></footer>
+  	<footer><span>ABDURRAHMAN // SEC</span><span data-cms="footerText">© 2026 — OFFENSIVE SECURITY RESEARCH BY ABDURRAHMAN</span><span>STATUS: <i></i> ONLINE</span></footer>
 
 
 
@@ -2604,6 +2604,7 @@ if (window.matchMedia("(max-width: 768px)").matches) {
 })();
 </script>
 
+  <script type="module" src="cms-runtime.js"></script>
 </body>
 
 
@@ -3003,7 +3004,6 @@ if (window.matchMedia("(max-width: 768px)").matches) {
   }, true);
 })();
 </script>
-
 
 
 
