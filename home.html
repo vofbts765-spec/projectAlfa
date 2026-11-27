@@ -2603,46 +2603,7 @@ if (window.matchMedia("(max-width: 768px)").matches) {
   // Until the first pointer movement, the regular system cursor stays visible.
 })();
 </script>
-<script>
-	/* CyberAlfa CMS runtime integration
-   Add this script immediately before </body> on the website.
-   Then add data-cms="fieldName" to the matching HTML element.
-*/
-(async function () {
-  "use strict";
-  const firebaseConfig = {
-    apiKey: "AIzaSyCQ0P7Ph-gYKyD1RhUcHEtd155UpPLslpk",
-    authDomain: "dashboard-dfc4b.firebaseapp.com",
-    projectId: "dashboard-dfc4b",
-    storageBucket: "dashboard-dfc4b.firebasestorage.app",
-    messagingSenderId: "573840272334",
-    appId: "1:573840272334:web:021236d32f576778f9d99f",
-    measurementId: "G-3NZW8N8J2Z"
-  };
-  try {
-    const [{initializeApp,getApps},{getFirestore,doc,getDoc}] = await Promise.all([
-      import("https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"),
-      import("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js")
-    ]);
-    const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const snap = await getDoc(doc(db,"sites","cyberalfa","content","published"));
-    if (!snap.exists()) return;
-    const data = snap.data().content || {};
-    document.querySelectorAll("[data-cms]").forEach(el => {
-      const key = el.getAttribute("data-cms");
-      if (typeof data[key] !== "string") return;
-      if (el.matches("input,textarea")) el.value = data[key];
-      else el.textContent = data[key];
-    });
-    if (data.siteTitle) document.title = data.siteTitle;
-    const description = document.querySelector('meta[name="description"]');
-    if (description && data.metaDescription) description.setAttribute("content",data.metaDescription);
-  } catch (error) {
-    console.warn("CyberAlfa CMS content was not loaded:", error);
-  }
-})();
-</script>
+
 </body>
 
 
