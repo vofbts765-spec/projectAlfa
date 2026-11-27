@@ -1,0 +1,82 @@
+/* CyberAlfa CMS v2 default content.
+   This file is an additive CMS data layer; it does not replace website markup. */
+export const DEFAULT_CONTENT = {
+  siteTitle: "Abdurrahman | CyberSecurity Researcher & Penetester",
+  metaDescription: "Official portfolio of Abdurrahman, a Cybersecurity and offensive security researcher specializing in web security and Penetesting.",
+  heroStatus: "AVAILABLE FOR RESEARCH & COLLABORATION",
+  heroEyebrow: "CYBERSECURITY // OFFENSIVE SECURITY",
+  heroTitle: "Breaking systems.\nUnderstanding them.\nSecuring them.",
+  heroDescription: "I’m Abdurrahman, a cybersecurity student exploring different areas of security, including web penetration testing, reverse engineering, Android APK analysis, and Security Operations Center (SOC) analysis. I’ve covered cybersecurity fundamentals and continue to build practical skills through hands-on projects, security labs, and SOC challenges. I enjoy understanding how applications work, identifying security weaknesses, and learning how security teams detect and investigate threats.",
+  aboutTitle: "Curious by nature.\nOffensive by mindset.",
+  aboutText: "I’m building my cybersecurity knowledge across both offensive and defensive security. My current focus includes web application testing, reverse engineering, and Android APK analysis, while I also spend time learning SOC workflows and practising security investigation challenges. Rather than limiting myself to one area, I want to understand how vulnerabilities are discovered, how applications behave internally, and how security incidents can be detected and investigated. I use personal projects and practical exercises to turn what I learn into experience.",
+  aboutExtra: "This portfolio is designed as a living research profile - projects, write-ups, CTF, and certifications can be added as the journey grows.",
+  qualificationsTitle: "Academic &\nTechnical Background",
+  qualifications: [
+    { status: "IN PROGRESS — 1ST SEMESTER", title: "BS in Cyber Security", institution: "Abasyn University", description: "Currently pursuing a Bachelor's degree focused on offensive security, network defense, ethical hacking methodologies, and core computing fundamentals.", state: "ongoing" },
+    { status: "IN PROGRESS", title: "Web Development", institution: "Bano Qabil Program", description: "Alongside my cybersecurity work, I’m currently strengthening my technical core by taking a Web Development course with Bano Qabil. I believe a strong understanding of web architecture, frontend mechanics, and backend structures makes for a much sharper security perspective.", state: "ongoing" },
+    { status: "IN PROGRESS", title: "Python programming", institution: "Simplilearn", description: "To further strengthen my programming capabilities, I am currently pursuing the Python Beginner Course on Simplilearn. This hands-on learning journey is helping me master core syntax, fundamental scripting logic, and problem-solving techniques, laying down a strong groundwork for software development and automation tasks.", state: "ongoing" },
+    { status: "COMPLETED", title: "AI Corse", institution: "Action Digital", description: "Continuously expanding my technical skill set beyond traditional boundaries, I successfully completed a comprehensive Artificial Intelligence course from Active Digital. This program provided me with a solid foundational understanding of modern AI concepts, prompt engineering, and intelligent tool integration, allowing me to apply automated workflows and smart solutions practically in my daily projects.", state: "completed" },
+    { status: "COMPLETED", title: "Cyber Security Fundamentals", institution: "Bano Qabil Program", description: "Enrolled in practical training covering core cybersecurity concepts, web application security testing, network analysis, and hands-on lab exercises.", state: "completed" },
+    { status: "COMPLETED", title: "Diploma in Information Technology (DIT)", institution: "Government Technical College", description: "Completed a comprehensive IT diploma focusing on computer networking, database management systems (DBMS), software basics, and IT administration.", state: "completed" },
+    { status: "COMPLETED", title: "Intermediate in Computer Science (ICS / CS)", institution: "Government College", description: "Completed 1st and 2nd year higher secondary education with a concentration in Computer Science, building core logic and technical fundamentals.", state: "completed" }
+  ],
+  skillsTitle: "Security\ntoolkit",
+  skills: [
+    { number: "01", title: "Web Security", description: "I practise web application security testing, study common vulnerability classes, and work on understanding their impact and possible remediation. My focus is on structured testing, documenting findings, and learning through authorized labs and practical projects.", tags: "XSS . SQLi . IDOR . SSRF . API" },
+    { number: "02", title: "Reverse Engineering & Android APK Analysis", description: "I’m exploring reverse engineering and Android application analysis to understand how APK files are structured and how applications behave internally. My interests include APK modding, examining application components, and studying application security in controlled environments.", tags: "MASVS . STORAGE . AUTH" },
+    { number: "03", title: "SOC Analysis & Blue Team", description: "I’m studying SOC analyst workflows, including security log analysis, suspicious activity investigation, threat detection, and incident triage. I also practise SOC challenges to improve my understanding of how defensive security teams identify and investigate potential threats.", tags: "LOG . DETECTION . EDR" },
+    { number: "04", title: "Cybersecurity Fundamentals", description: "I’ve covered cybersecurity fundamentals and use that knowledge as a foundation for learning more advanced topics. I continue to strengthen my understanding of security principles, common attack patterns, defensive practices, and the technical concepts behind modern applications and systems.", tags: "RECON . ENUM . PENTEST" },
+    { number: "05", title: "Research & Reporting", description: "Reproducing issues, documenting evidence, impact analysis and practical remediation.", tags: "WRITEUPS . CVE . REPORTS" }
+  ],
+  researchTitle: "What I'm\nexploring",
+  research: [
+    { code: "R-001", title: "Web Application Attack Surfaces", description: "Studying how modern applications expose trust boundaries and security assumptions.", status: "ACTIVE" },
+    { code: "R-002", title: "Offensive Security Methodology", description: "Building workflows for reconnaissance, testing, evidence and reporting.", status: "ACTIVE" },
+    { code: "R-003", title: "Security Write-ups", description: "Turning hands-on labs and CTF lessons into concise technical notes.", status: "BUILDING" },
+    { code: "R-004", title: "BS CyberSecurity & Self Learning", description: "BS Cyber Security notes and study PDFs covering my university semesters and self-learning in detail.", status: "EXPLORE", url: "https://vofbts765-spec.github.io/Uni_study_notes/", button: "EXPLORE" }
+  ],
+  projectsTitle: "Selected\nWork",
+  projects: [
+    { number: "P01", category: "WEB SECURITY LAB", title: "Web Penetesting Lab", description: "A practical environment for learning web application security testing. I use lab exercises to study common vulnerabilities, examine application behaviour, record reproducible findings, and understand possible remediation. The goal is to improve my testing process and technical documentation through hands-on practice.", url: "https://vofbts765-spec.github.io/case_study_web_pentesting/", button: "Case study →", featured: true },
+    { number: "P02", category: "RESEARCH", title: "Security Notes", description: "Structured notes on vulnerabilities, tools, methodologies and lessons learned.", url: "https://vofbts765-spec.github.io/secutity-notice/", button: "Read more →" },
+    { number: "P03", category: "CTF / LABS", title: "Practice Labs", description: "Hands-on practice environments focused on enumeration, web exploitation and Linux fundamentals.", url: "https://vofbts765-spec.github.io/finalnextofsec/", button: "View profile →" }
+  ],
+  toolkitTitle: "Cyber Toolkit",
+  toolkitBadge: "NEW RELEASE // OFFENSIVE SECURITY SUITE",
+  toolkitDescription: "Cyber Toolkit brings several learning utilities together in one browser interface. It includes password-strength estimation, hash generation, an educational RSA demonstration, an HTML/CSS/JavaScript editor, and a Python practice environment. Many operations run locally in the browser; users should review each tool's limitations before using it with sensitive data.",
+  toolkitUrl: "https://cytoolkit.netlify.app",
+  researchToolTitle: "Bug Bounty Calculator",
+  researchToolDescription: "An interactive payout estimator developed by Abdurrahman to streamline security research valuation. It calculates potential vulnerability rewards based on CVSS severity scores, target scope, and impact metrics.",
+  researchToolUrl: "https://vulbug.netlify.app",
+  hostingTitle: "Web Hosting Platform",
+  hostingDescription: "I’m working on a web hosting project designed to make website deployment easier. The project aims to provide a way to upload website files and publish them through a live URL. It is still under development, and its deployment process, file management, and security controls will need to be tested before public release.",
+  feedbackTitle: "Community Review & Feedback",
+  feedbackDescription: "I’m continuously improving my projects as I learn more about cybersecurity and software development. If you’ve explored one of my tools or technical write-ups, I’d appreciate feedback on what worked well, what could be clearer, and what should be improved. Constructive feedback helps me identify gaps and make my work more useful.",
+  feedbackUrl: "https://vofbts765-spec.github.io/feedbackpro/",
+  contactTitle: "Let's build something\nmore secure.",
+  contactDescription: "For research collaboration, university projects, security discussions, or professional opportunities.",
+  contactEmail: "a39189682@gmail.com",
+  githubUrl: "https://github.com/vofbts765-spec/",
+  linkedinUrl: "https://www.linkedin.com/in/v-kpk-boy-200479420",
+  footerText: "ABDURRAHMAN // SEC © 2026 — OFFENSIVE SECURITY RESEARCH BY ABDURRAHMAN STATUS: ONLINE",
+  navLinks: [
+    { label: "About", url: "#about" },
+    { label: "Skills", url: "#skills" },
+    { label: "Research", url: "#research" },
+    { label: "Projects", url: "#project" },
+    { label: "Web Hosting Platform", url: "#web-hosting" },
+    { label: "Play Game", url: "https://cyberplaygame.netlify.app" }
+  ],
+  media: {
+    logoUrl: "https://i.postimg.cc/gJLZN8H0/Whats-App-Image-2026-09-18-at-4-31-02-PM.jpg",
+    profileUrl: "https://i.postimg.cc/rshDqw4v/My-Photo-Dp.jpg",
+    backgroundVideoUrl: "https://www.shutterstock.com/shutterstock/videos/3401562239/preview/stock-footage-blue-hacker-desktop-console-with-scrolling-programming-code-loop-background-wallpaper.webm"
+  },
+  design: {
+    bg: "#050607", panel: "#0a0d0e", line: "#1c2425", text: "#e9eeee", muted: "#849091", green: "#b7ff43", green2: "#72d51b"
+  }
+};
+
+export function cloneDefaultContent() {
+  return JSON.parse(JSON.stringify(DEFAULT_CONTENT));
+}
