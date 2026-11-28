@@ -2168,6 +2168,100 @@ if (window.matchMedia("(max-width: 768px)").matches) {
       font-size: 10px !important;
     }
   }
+
+
+  /* CMS v2 color-profile overrides */
+  /* CyberAlfa CMS v2 — theme-aware, individually configurable color layer.
+     Values are injected by cms-v2-runtime.js from the active Dark/Light profile. */
+  html[data-site-theme] body {
+    background-color: var(--bg) !important;
+    color: var(--text) !important;
+  }
+  
+  /* Global fallback colors, with more specific section controls below. */
+  html[data-site-theme] h1,
+  html[data-site-theme] h2,
+  html[data-site-theme] h3,
+  html[data-site-theme] h4,
+  html[data-site-theme] h5,
+  html[data-site-theme] h6 { color: var(--cms-heading) !important; }
+  html[data-site-theme] main p:not(.eyebrow) { color: var(--cms-paragraph) !important; }
+  
+  html[data-site-theme] #home h1 { color: var(--cms-hero-heading) !important; }
+  html[data-site-theme] #home [data-cms="heroDescription"] { color: var(--cms-hero-text) !important; }
+  
+  html[data-site-theme] .nav-links a,
+  html[data-site-theme] .nav-cta { color: var(--cms-nav-text) !important; }
+  html[data-site-theme] .nav-links a:hover,
+  html[data-site-theme] .nav-cta:hover { color: var(--cms-nav-hover) !important; }
+  html[data-site-theme] .brand,
+  html[data-site-theme] .brand-name { color: var(--cms-heading) !important; }
+  
+  html[data-site-theme] #about h2 { color: var(--cms-about-heading) !important; }
+  html[data-site-theme] #about .about-copy,
+  html[data-site-theme] #about .about-copy p { color: var(--cms-about-text) !important; }
+  
+  html[data-site-theme] #QUALIFICATIONS .qual-header-wrapper h2 { color: var(--cms-qualifications-heading) !important; }
+  html[data-site-theme] .qual-title { color: var(--cms-qualification-title) !important; }
+  html[data-site-theme] .qual-institution { color: var(--cms-qualification-institution) !important; }
+  html[data-site-theme] .qual-desc { color: var(--cms-qualification-text) !important; }
+  
+  html[data-site-theme] #skills > h2 { color: var(--cms-skills-heading) !important; }
+  html[data-site-theme] #skills .skill-grid article h3 { color: var(--cms-skill-title) !important; }
+  html[data-site-theme] #skills .skill-grid article p { color: var(--cms-skill-text) !important; }
+  
+  html[data-site-theme] #research .section-head h2 { color: var(--cms-research-heading) !important; }
+  html[data-site-theme] #research .thesis-card h3 { color: var(--cms-research-title) !important; }
+  html[data-site-theme] #research .thesis-card .thesis-line { color: var(--cms-research-text) !important; }
+  
+  html[data-site-theme] #project > h2 { color: var(--cms-projects-heading) !important; }
+  html[data-site-theme] #project .project h3 { color: var(--cms-project-title) !important; }
+  html[data-site-theme] #project .project p { color: var(--cms-project-text) !important; }
+  
+  html[data-site-theme] #tool .toolkit-showcase h3,
+  html[data-site-theme] #research .toolkit-showcase h3 { color: var(--cms-toolkit-heading) !important; }
+  html[data-site-theme] #tool .toolkit-showcase p,
+  html[data-site-theme] #research .toolkit-showcase p { color: var(--cms-toolkit-text) !important; }
+  
+  html[data-site-theme] #contact h2 { color: var(--cms-contact-heading) !important; }
+  html[data-site-theme] #contact > p:not(.eyebrow) { color: var(--cms-contact-text) !important; }
+  html[data-site-theme] footer { color: var(--cms-footer-text) !important; }
+  
+  /* Base panel surfaces follow the current mode's panel and border choices. */
+  html[data-site-theme] .nav,
+  html[data-site-theme] .terminal,
+  html[data-site-theme] .terminal-bar,
+  html[data-site-theme] .hosting-preview,
+  html[data-site-theme] .review-section {
+    background-color: var(--panel) !important;
+    border-color: var(--line) !important;
+  }
+
+  /* Reusable card palette for generated and static content cards. */
+  html[data-site-theme] .qual-card,
+  html[data-site-theme] #skills .skill-grid article,
+  html[data-site-theme] #research .thesis-card,
+  html[data-site-theme] #project .project,
+  html[data-site-theme] .toolkit-showcase {
+    background: var(--cms-card-bg) !important;
+    border-color: var(--cms-card-border) !important;
+  }
+  html[data-site-theme] .hosting-content h2,
+  html[data-site-theme] .review-title,
+  html[data-site-theme] .aegis-title { color: var(--cms-card-title) !important; }
+  html[data-site-theme] .hosting-content p,
+  html[data-site-theme] .review-desc,
+  html[data-site-theme] .aegis-text { color: var(--cms-card-text) !important; }
+  
+  /* Primary action colors; ghost/outline buttons keep their existing treatment. */
+  html[data-site-theme] .btn.primary,
+  html[data-site-theme] a.btn.primary,
+  html[data-site-theme] .cinematic-btn:not(.calc-btn),
+  html[data-site-theme] .btn-give-feedback {
+    background: var(--cms-button-bg) !important;
+    border-color: var(--cms-button-bg) !important;
+    color: var(--cms-button-text) !important;
+  }
 </style>
 
 <button id="cyber-theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false" title="Switch website theme">
@@ -2302,6 +2396,7 @@ if (window.matchMedia("(max-width: 768px)").matches) {
   function applyTheme(theme) {
     currentTheme = theme === 'light' ? 'light' : 'dark';
     root.setAttribute('data-site-theme', currentTheme);
+    document.dispatchEvent(new CustomEvent('cyberalfa:themechange', { detail: { theme: currentTheme } }));
 
     var switchToLight = currentTheme === 'dark';
     label.textContent = switchToLight ? 'Light mode' : 'Dark mode';
