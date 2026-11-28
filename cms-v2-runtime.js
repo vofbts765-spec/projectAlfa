@@ -1,3 +1,5 @@
+import { DEFAULT_DESIGN_PROFILES } from './cms-v2-data.js';
+
 /* CyberAlfa CMS v2 public runtime.
    Additive layer: leaves existing site markup, styles and scripts in place. */
 (async function () {
@@ -13,6 +15,7 @@
     measurementId: "G-3NZW8N8J2Z"
   };
   const publishedPath = ['sites', 'cyberalfa', 'content', 'published'];
+  let activeContent = null;
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
@@ -171,6 +174,75 @@
     grid.replaceChildren(fragment);
   }
 
+  const DESIGN_CSS_PROPERTIES = {
+    "bg": "--bg",
+    "panel": "--panel",
+    "line": "--line",
+    "text": "--text",
+    "muted": "--muted",
+    "green": "--green",
+    "green2": "--green2",
+    "heading": "--cms-heading",
+    "paragraph": "--cms-paragraph",
+    "heroHeading": "--cms-hero-heading",
+    "heroText": "--cms-hero-text",
+    "navText": "--cms-nav-text",
+    "navHover": "--cms-nav-hover",
+    "aboutHeading": "--cms-about-heading",
+    "aboutText": "--cms-about-text",
+    "qualificationsHeading": "--cms-qualifications-heading",
+    "qualificationTitle": "--cms-qualification-title",
+    "qualificationInstitution": "--cms-qualification-institution",
+    "qualificationText": "--cms-qualification-text",
+    "skillsHeading": "--cms-skills-heading",
+    "skillTitle": "--cms-skill-title",
+    "skillText": "--cms-skill-text",
+    "researchHeading": "--cms-research-heading",
+    "researchTitle": "--cms-research-title",
+    "researchText": "--cms-research-text",
+    "projectsHeading": "--cms-projects-heading",
+    "projectTitle": "--cms-project-title",
+    "projectText": "--cms-project-text",
+    "toolkitHeading": "--cms-toolkit-heading",
+    "toolkitText": "--cms-toolkit-text",
+    "contactHeading": "--cms-contact-heading",
+    "contactText": "--cms-contact-text",
+    "cardBg": "--cms-card-bg",
+    "cardBorder": "--cms-card-border",
+    "cardTitle": "--cms-card-title",
+    "cardText": "--cms-card-text",
+    "buttonBg": "--cms-button-bg",
+    "buttonText": "--cms-button-text",
+    "footerText": "--cms-footer-text"
+};
+  const LEGACY_DESIGN_KEYS = ['bg', 'panel', 'line', 'text', 'muted', 'green', 'green2'];
+
+  function applyDesign(design) {
+    const root = document.documentElement;
+    const theme = root.getAttribute('data-site-theme') === 'light' ? 'light' : 'dark';
+    const defaults = DEFAULT_DESIGN_PROFILES[theme] || DEFAULT_DESIGN_PROFILES.dark;
+    const savedProfile = design && design[theme] && typeof design[theme] === 'object' ? design[theme] : {};
+    const profile = { ...defaults, ...savedProfile };
+
+    // Backward compatibility: old Firestore records stored only design.bg/text/etc.
+    if (theme === 'dark') {
+      LEGACY_DESIGN_KEYS.forEach(key => {
+        if (!Object.prototype.hasOwnProperty.call(savedProfile, key) && design && typeof design[key] === 'string') {
+          profile[key] = design[key];
+        }
+      });
+    }
+
+    Object.entries(DESIGN_CSS_PROPERTIES).forEach(([key, cssName]) => {
+      const value = plain(profile[key]).trim();
+      if (/^#[0-9a-f]{6}$/i.test(value)) root.style.setProperty(cssName, value);
+    });
+  }
+
+  document.addEventListener('cyberalfa:themechange', () => {
+    if (activeContent) applyDesign(activeContent.design);
+  });
+
   function applyContent(content) {
     if (!content || typeof content !== 'object') return;
 
@@ -274,13 +346,8 @@
       }
     }
 
-    if (content.design && typeof content.design === 'object') {
-      const properties = { bg: '--bg', panel: '--panel', line: '--line', text: '--text', muted: '--muted', green: '--green', green2: '--green2' };
-      Object.entries(properties).forEach(([key, cssName]) => {
-        const value = plain(content.design[key]).trim();
-        if (/^#[0-9a-f]{6}$/i.test(value)) document.documentElement.style.setProperty(cssName, value);
-      });
-    }
+    activeContent = content;
+    applyDesign(content.design);
 
     const footer = $('footer');
     if (footer && typeof content.footerText === 'string') {
