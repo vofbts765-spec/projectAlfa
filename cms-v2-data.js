@@ -1,6 +1,91 @@
 /* CyberAlfa CMS v2 default content.
    This file is an additive CMS data layer; it does not replace website markup. */
-export const DEFAULT_CONTENT = {
+export const DEFAULT_DESIGN_PROFILES = Object.freeze({
+  dark: {
+    "bg": "#050607",
+    "panel": "#0a0d0e",
+    "line": "#1c2425",
+    "text": "#e9eeee",
+    "muted": "#849091",
+    "green": "#b7ff43",
+    "green2": "#72d51b",
+    "heading": "#ffffff",
+    "paragraph": "#aab5b5",
+    "heroHeading": "#ffffff",
+    "heroText": "#aab5b5",
+    "navText": "#849091",
+    "navHover": "#b7ff43",
+    "aboutHeading": "#ffffff",
+    "aboutText": "#aab5b5",
+    "qualificationsHeading": "#ffffff",
+    "qualificationTitle": "#f0f5f3",
+    "qualificationInstitution": "#b7ff43",
+    "qualificationText": "#9aa8a8",
+    "skillsHeading": "#ffffff",
+    "skillTitle": "#f0f5f3",
+    "skillText": "#9aa8a8",
+    "researchHeading": "#ffffff",
+    "researchTitle": "#f0f5f3",
+    "researchText": "#9aa8a8",
+    "projectsHeading": "#ffffff",
+    "projectTitle": "#f0f5f3",
+    "projectText": "#9aa8a8",
+    "toolkitHeading": "#ffffff",
+    "toolkitText": "#aab5b5",
+    "contactHeading": "#ffffff",
+    "contactText": "#aab5b5",
+    "cardBg": "#0a0d0e",
+    "cardBorder": "#1c2425",
+    "cardTitle": "#f0f5f3",
+    "cardText": "#849091",
+    "buttonBg": "#b7ff43",
+    "buttonText": "#080a08",
+    "footerText": "#849091"
+},
+  light: {
+    "bg": "#f3f7f3",
+    "panel": "#ffffff",
+    "line": "#d7e2d9",
+    "text": "#17251d",
+    "muted": "#586a60",
+    "green": "#397d13",
+    "green2": "#316d10",
+    "heading": "#17251d",
+    "paragraph": "#586a60",
+    "heroHeading": "#17251d",
+    "heroText": "#52645a",
+    "navText": "#586a60",
+    "navHover": "#397d13",
+    "aboutHeading": "#17251d",
+    "aboutText": "#586a60",
+    "qualificationsHeading": "#17251d",
+    "qualificationTitle": "#1b2b21",
+    "qualificationInstitution": "#08788a",
+    "qualificationText": "#53645a",
+    "skillsHeading": "#17251d",
+    "skillTitle": "#1b2b21",
+    "skillText": "#53645a",
+    "researchHeading": "#17251d",
+    "researchTitle": "#1b2b21",
+    "researchText": "#53645a",
+    "projectsHeading": "#17251d",
+    "projectTitle": "#1b2b21",
+    "projectText": "#53645a",
+    "toolkitHeading": "#1b2b21",
+    "toolkitText": "#586a60",
+    "contactHeading": "#17251d",
+    "contactText": "#586a60",
+    "cardBg": "#ffffff",
+    "cardBorder": "#d7e2d9",
+    "cardTitle": "#1b2b21",
+    "cardText": "#53645a",
+    "buttonBg": "#397d13",
+    "buttonText": "#ffffff",
+    "footerText": "#586a60"
+}
+});
+
+const DEFAULT_CONTENT = {
   siteTitle: "Abdurrahman | CyberSecurity Researcher & Penetester",
   metaDescription: "Official portfolio of Abdurrahman, a Cybersecurity and offensive security researcher specializing in web security and Penetesting.",
   heroStatus: "AVAILABLE FOR RESEARCH & COLLABORATION",
@@ -73,7 +158,10 @@ export const DEFAULT_CONTENT = {
     backgroundVideoUrl: "https://www.shutterstock.com/shutterstock/videos/3401562239/preview/stock-footage-blue-hacker-desktop-console-with-scrolling-programming-code-loop-background-wallpaper.webm"
   },
   design: {
-    bg: "#050607", panel: "#0a0d0e", line: "#1c2425", text: "#e9eeee", muted: "#849091", green: "#b7ff43", green2: "#72d51b"
+    // Legacy aliases remain for older CMS snapshots and integrations.
+    bg: "#050607", panel: "#0a0d0e", line: "#1c2425", text: "#e9eeee", muted: "#849091", green: "#b7ff43", green2: "#72d51b",
+    dark: { ...DEFAULT_DESIGN_PROFILES.dark },
+    light: { ...DEFAULT_DESIGN_PROFILES.light }
   }
 };
 
