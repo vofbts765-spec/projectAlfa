@@ -87,6 +87,39 @@ function deepSet(object, path, value) {
   target[parts.at(-1)] = value;
 }
 
+// Merge saved CMS content with the newest schema without discarding saved arrays or legacy values.
+function mergeContentWithDefaults(savedContent) {
+  const defaults = cloneDefaultContent();
+  const merge = (base, source) => {
+    if (!source || typeof source !== 'object' || Array.isArray(source)) return source ?? base;
+    const result = { ...base };
+    Object.entries(source).forEach(([key, value]) => {
+      if (value && typeof value === 'object' && !Array.isArray(value)) {
+        result[key] = merge(base && typeof base[key] === 'object' && !Array.isArray(base[key]) ? base[key] : {}, value);
+      } else {
+        result[key] = value;
+      }
+    });
+    return result;
+  };
+
+  const saved = savedContent && typeof savedContent === 'object' ? savedContent : {};
+  const merged = merge(defaults, saved);
+  const savedDesign = saved.design && typeof saved.design === 'object' ? saved.design : {};
+  const legacyKeys = ['bg', 'panel', 'line', 'text', 'muted', 'green', 'green2'];
+
+  // Before the dual-profile system, all colors were stored flat under design.*.
+  // Preserve those existing choices as the starting Dark Mode palette.
+  if (!savedDesign.dark || typeof savedDesign.dark !== 'object') {
+    legacyKeys.forEach(key => {
+      if (typeof savedDesign[key] === 'string' && /^#[0-9a-f]{6}$/i.test(savedDesign[key])) {
+        merged.design.dark[key] = savedDesign[key];
+      }
+    });
+  }
+  return merged;
+}
+
 function markDirty() {
   dirty = true;
   setStatus('Unsaved changes', 'bad');
@@ -360,12 +393,12 @@ async function loadContent() {
   const { doc, getDoc } = await import('https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js');
   const draftSnapshot = await getDoc(doc(db, 'sites', 'cyberalfa', 'content', 'draft'));
   if (draftSnapshot.exists() && draftSnapshot.data().content) {
-    content = { ...cloneDefaultContent(), ...draftSnapshot.data().content };
+    content = mergeContentWithDefaults(draftSnapshot.data().content);
     return 'Draft loaded';
   }
   const publishedSnapshot = await getDoc(doc(db, 'sites', 'cyberalfa', 'content', 'published'));
   if (publishedSnapshot.exists() && publishedSnapshot.data().content) {
-    content = { ...cloneDefaultContent(), ...publishedSnapshot.data().content };
+    content = mergeContentWithDefaults(publishedSnapshot.data().content);
     return 'Published content loaded';
   }
   content = cloneDefaultContent();
@@ -479,7 +512,7 @@ async function init() {
     if (restoreButton) {
       const snapshot = historyCache.get(restoreButton.dataset.restoreVersion);
       if (!snapshot || !confirm('Load this version into the editor? Your current unsaved editor content will be replaced.')) return;
-      content = { ...cloneDefaultContent(), ...JSON.parse(JSON.stringify(snapshot)) };
+      content = mergeContentWithDefaults(JSON.parse(JSON.stringify(snapshot)));
       dirty = true;
       fillBindings();
       Object.keys(schemas).forEach(renderCollection);
